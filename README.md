@@ -229,7 +229,7 @@
     MariaDB [(mysql)]>
     ```
 
-    Now setting your root password MySQL you want with
+    Now setting your root password MySQL you want, with
 
     ```bash
     set password for 'root'@'localhost' = password('your_password_here');
@@ -268,9 +268,9 @@
     <details open>
     <summary>See</summary>
 
-    |Access Denied 403 Forbidden|
-    |--|
-    |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+  |Access Denied 403 Forbidden|
+  |--|
+  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
 
     </details>
 
