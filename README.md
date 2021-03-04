@@ -1,9 +1,21 @@
 <p align="center">
   <a name="top" href="#">
-     <img alt="xshin404/lampTermux" height="60%" width="100%" src="/img/lamp2.png"/>
+     <img alt="xshin404/lampTermux" height="60%" width="100%" src="/img/banner/lamp2.png"/>
   </a>
   Image by : <a href="https://images.app.goo.gl/bQt3TQpQt5TN1J837">mvps.net</a>
 </p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/lampTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/lampTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
+
+
+### Overview
+
+  <details open>
+
+  |PHP Info|MySQL Login|MySQL|
+  |--|--|--|
+  |![PHP Info](/img/overview/php_info.jpg)||![MySQL Login](/img/overview/mysql_login.jpg)||![MySQL](/img/overview/mysql.jpg)|
+
+  </details>
+
 
 ### Installation
 
@@ -39,19 +51,19 @@
 
   - Start Apache
 
-  - ```bash
+    ```bash
     httpd
     ```
 
   - Kill Apache PID
 
-  - ```bash
+    ```bash
     killall httpd
     ```
 
   - Restart Apache
 
-  - ```
+    ```
     kilall httpd; httpd
     ```
 
@@ -62,13 +74,13 @@
 
   - Start MySQL Daemon
 
-  - ```bash
+    ```bash
     mysqld_safe
     ```
 
   - Login MySQL (CLI Mode)
 
-  - ```bash
+    ```bash
     mysql -u root -p # After type this you got prompt password
     ```
 
@@ -79,21 +91,50 @@
   <details open>
   <summary>Apache & PHP</summary>
 
-  If you want to custom PATH `htdocs` edit this text
+  - Custom PATH `htdocs`
 
-  - ```bash
+    ```bash
+    ...
+    ...
+    ...
     DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+    ...
+    ...
+    ...
     ```
 
-  for example `DocumentRoot "/data/data/com.termux/files/home/apache` Make sure you create or have the directory.
-  don't forget edit `<Directory "/data/data/com.termux/files/same/path">`
+  for example 
 
-  Custom exstension file to be loaded
+  ```bash
+  ...
+  ...
+  ...
+  DocumentRoot "/data/data/com.termux/files/home/apache"
+  ...
+  ...
+  ...
+  ```
 
-  - ```bash
+  Make sure you create or have the directory.
+  don't forget edit 
+
+  ```bash
+  DocumentRoot "/data/data/com.termux/files/custom/path"
+  <Directory "/data/data/com.termux/files/custom/path">
+  ```
+
+  - Custom file + extensions to be loaded
+
+    ```bash
+    ...
+    ...
+    ...
     <IfModule dir_module>
         DirectoryIndex index.html # For example "index.php"
     </IfModule>
+    ...
+    ...
+    ...
     ```
 
   </details>
@@ -104,28 +145,57 @@
   <details open>
   <summary>Apache & PHP</summary>
 
-  - PHP not loaded just show the code
+  - PHP not loaded just show the code, like this
 
-  add this text on last configuration
-
-  `LoadModule php_module libexec/apache2/libphp.so"`
-  `AddHandler php-script .php"`
-
-  <strong>This module for PHP Version 8</strong>
+  |PHP File not loaded just show the code|
+  |--|
+  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+  <p>This image i use my laptop but this my ip Termux</p>
 
   Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
   
   give comment (#) this text
 
-  - ```bash
-    LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so"
+    ```bash
+    ...
+    ...
+    ...
+    LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    ...
+    ...
+    ...
     ```
 
   uncomment this text
 
-  - ```bash
-    LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so"
+    ```bash
+    ...
+    ...
+    ...
+    LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    ...
+    ...
+    ...
     ```
+
+  add module on last configuration
+
+  ```bash
+  ...
+  ...
+  ...
+  LoadModule php_module libexec/apache2/libphp.so
+  AddHandler php-script .php
+  ```
+
+  This module for <strong>PHP Version 8</strong>
+
+  now restart apache with `killall httpd; httpd`
+
+  |TARAAA PHP loaded|
+  |--|
+  |![Solved](/img/troubleshooting/taraa.jpg)|
+
 
   </details>
 
@@ -134,20 +204,102 @@
 
   - MySQL login but unknown password for the first time
 
-  to fix this run MySQL daemon with `mysqld_safe` and create new session with side bar Termux
+  to fix this run MySQL daemon with 
 
-  login to MySQL with command `mysql -u ${whoami}`
+  ```bash
+  mysqld_safe
+  ```
+  and create new session with side bar Termux
 
-  after login type `use mysql;` to change mode on `MariaDB [(none)]` to `MariaDB [(mysql)]`
+  login to MySQL with
 
-  now setting your root password MySQL you want with command
+  ```bash
+  mysql -u ${whoami}
+  ```
 
-  `set password for 'root'@'localhost' = password('your_password_here');"`
+  after login type this (on mysql)
+
+  ```bash
+  use mysql;
+  ```
+
+  to change mode on 
+
+  ```bash
+  MariaDB [(none)]>
+  ```
+
+  to 
+
+  ```bash
+  MariaDB [(mysql)]>
+  ```
+
+  now setting your root password MySQL you want with
+
+  ```bash
+  set password for 'root'@'localhost' = password('your_password_here');
+  ```
 
   after setting password for root login
 
-  type `flush privileges;`
+  type 
 
-  now exit and relog with `mysql -u root -p` the prompt password fill with your password changed
+  ```bash
+  flush privileges;
+  ```
+
+  now exit and relog with 
+
+  ```bash
+  mysql -u root -p
+  ```
+
+  the prompt password fill with your password changed
+
+  |Picture|
+  |--|
+  |![Picture](/img/troubleshooting/mysql_root_password.jpg)|
 
   </details>
+
+  <details open>
+  <summary>phpmyadmin</summary>
+
+  |Access Denied 403 Forbidden|
+  |--|
+  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+
+  If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
+
+  ```bash
+  ...
+  ...
+  ...
+  <Directory />
+        AllowOverride none
+        Require all denied
+  </Directory>
+  ...
+  ...
+  ...
+  ```
+
+  to
+
+  ```bash
+  ...
+  ...
+  ...
+  <Directory />
+        AllowOverride none
+        Require all granted
+  </Directory>
+  ...
+  ...
+  ...
+  ```
+
+
+  </details>
+
