@@ -95,47 +95,43 @@
   - Custom PATH `htdocs`
 
     ```bash
-    ...
-    ...
-    ...
-    DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
-    ...
-    ...
-    ...
+    246 ...
+    247 ...
+    248 ...
+    249 DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+    250 <Directory "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs">
+    251 ...
+    252 ...
+    253 ...
     ```
 
-  for example 
+    for example 
 
-  ```bash
-  ...
-  ...
-  ...
-  DocumentRoot "/data/data/com.termux/files/home/apache"
-  ...
-  ...
-  ...
-  ```
+    ```bash
+    246 ...
+    247 ...
+    248 ...
+    249 DocumentRoot "/data/data/com.termux/files/home/apache"
+    250 <Directory "/data/data/com.termux/files/home/apache">
+    251 ...
+    252 ...
+    253 ...
+    ```
 
-  Make sure you create or have the directory.
-  don't forget edit 
-
-  ```bash
-  DocumentRoot "/data/data/com.termux/files/custom/path"
-  <Directory "/data/data/com.termux/files/custom/path">
-  ```
+    Make sure you create or already exists the directory.
 
   - Custom file + extensions to be loaded
 
     ```bash
-    ...
-    ...
-    ...
-    <IfModule dir_module>
-        DirectoryIndex index.html # For example "index.php"
-    </IfModule>
-    ...
-    ...
-    ...
+    279 ...
+    280 ...
+    281 ...
+    282 <IfModule dir_module>
+    283     DirectoryIndex index.html # For example "index.php"
+    284 </IfModule>
+    285 ...
+    286 ...
+    287 ...
     ```
 
   </details>
@@ -148,53 +144,53 @@
 
   - PHP not loaded just show the code, like this
 
-  |PHP File not loaded just show the code|
-  |--|
-  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+    |PHP File not loaded just show the code|
+    |--|
+    |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
 
-  Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
+    Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
   
-  give comment (#) this text
+    Hive comment (#) this text
 
-  ```bash
-  68 ...
-  69 ...
-  70 ...
-  71 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
-  72 ...
-  73 ...
-  74 ...
-  ```
+    ```bash
+    68 ...
+    69 ...
+    70 ...
+    71 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    72 ...
+    73 ...
+    74 ...
+    ```
 
-  uncomment this text
+    Uncomment this text
 
-  ```bash
-  67 ...
-  68 ...
-  69 ...
-  70 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
-  71 ...
-  72 ...
-  73 ...
-  ```
+    ```bash
+    67 ...
+    68 ...
+    69 ...
+    70 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    71 ...
+    72 ...
+    73 ...
+    ```
 
-  add module on last configuration
+    Add module on last configuration
 
-  ```bash
-  536 ...
-  537 ...
-  538 ...
-  539 LoadModule php_module libexec/apache2/libphp.so
-  540 AddHandler php-script .php
-  ```
+    ```bash
+    536 ...
+    537 ...
+    538 ...
+    539 LoadModule php_module libexec/apache2/libphp.so
+    540 AddHandler php-script .php
+    ```
 
-  This module for <strong>PHP Version 8</strong>
+    This module for <strong>PHP Version 8</strong>
 
-  now restart apache with `killall httpd; httpd`
+    Now restart apache with `killall httpd; httpd`
 
-  |TARAAA PHP loaded|
-  |--|
-  |![Solved](/img/troubleshooting/taraaa.jpg)|
+    |TARAAA PHP loaded|
+    |--|
+    |![Solved](/img/troubleshooting/taraaa.jpg)|
 
 
   </details>
@@ -204,103 +200,106 @@
 
   - MySQL login but unknown password for the first time
 
-  to fix this run MySQL daemon with 
+    To fix this run MySQL daemon with 
 
-  ```bash
-  mysqld_safe
-  ```
-  and create new session with side bar Termux
+    ```bash
+    mysqld_safe
+    ```
+    And create new session with side bar Termux
 
-  login to MySQL with
+    Login to MySQL with
 
-  ```bash
-  mysql -u ${whoami}
-  ```
+    ```bash
+    mysql -u ${whoami}
+    ```
 
-  after login type this (on mysql)
+    After login type this (on mysql)
 
-  ```bash
-  use mysql;
-  ```
+    ```bash
+    use mysql;
+    ```
 
-  to change mode on 
+    To change mode on 
 
-  ```bash
-  MariaDB [(none)]>
-  ```
+    ```bash
+    MariaDB [(none)]>
+    ```
 
-  to 
+    To 
 
-  ```bash
-  MariaDB [(mysql)]>
-  ```
+    ```bash
+    MariaDB [(mysql)]>
+    ```
 
-  now setting your root password MySQL you want with
+    now setting your root password MySQL you want with
 
-  ```bash
-  set password for 'root'@'localhost' = password('your_password_here');
-  ```
+    ```bash
+    set password for 'root'@'localhost' = password('your_password_here');
+    ```
 
-  after setting password for root login
+    after setting password for root login
 
-  type 
+    type 
 
-  ```bash
-  flush privileges;
-  ```
+    ```bash
+    flush privileges;
+    ```
 
-  now exit and relog with 
+    now exit and relog with 
 
-  ```bash
-  mysql -u root -p
-  ```
+    ```bash
+    mysql -u root -p
+    ```
 
-  the prompt password fill with your password changed
+    the prompt password fill with your password changed
 
-  |Picture|
-  |--|
-  |![Picture](/img/troubleshooting/mysql_root_password.jpg)|
+    |Picture|
+    |--|
+    |![Picture](/img/troubleshooting/mysql_root_password.jpg)|
 
   </details>
 
   <details open>
   <summary>phpmyadmin</summary>
 
-  |Access Denied 403 Forbidden|
-  |--|
-  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+  - Access Denied 403 Forbidden
 
-  If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
+    If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
 
-  ```bash
-  229 ...
-  230 ...
-  231 ...
-  232 <Directory />
-  233       AllowOverride none
-  234       Require all denied
-  235 </Directory>
-  236 ...
-  237 ...
-  238 ...
-  ```
 
-  to
+    |Access Denied 403 Forbidden|
+    |--|
+    |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
 
-  ```bash
-  229 ...
-  230 ...
-  231 ...
-  232 <Directory />
-  233       AllowOverride none
-  234       Require all granted
-  235 </Directory>
-  236 ...
-  237 ...
-  238 ...
-  ```
+    ```bash
+    229 ...
+    230 ...
+    231 ...
+    232 <Directory />
+    233       AllowOverride none
+    234       Require all denied
+    235 </Directory>
+    236 ...
+    237 ...
+    238 ...
+    ```
 
-  change "Require all `denied`" to "Require all `granted`"
+    To
+
+    ```bash
+    229 ...
+    230 ...
+    231 ...
+    232 <Directory />
+    233       AllowOverride none
+    234       Require all granted
+    235 </Directory>
+    236 ...
+    237 ...
+    238 ...
+    ```
+
+    Change Require all `denied` to Require all `granted`
 
   </details>
 
