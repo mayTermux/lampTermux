@@ -1,4 +1,3 @@
-        Require all granted
 <p align="center">
   <a name="top" href="#">
      <img alt="xshin404/lampTermux" height="60%" width="100%" src="/img/banner/lamp2.png"/>
@@ -82,7 +81,7 @@
   - Login MySQL (CLI Mode)
 
     ```bash
-    mysql -u root -p # After type this you got prompt password
+    mysql -u root -p # After type this you get column password
     ```
 
   </details>
@@ -92,7 +91,7 @@
   <details open>
   <summary>Apache & PHP</summary>
 
-  - Custom PATH `htdocs`
+  - Custom PATH `htdocs` on `$PREFIX/etc/apache2/httpd.conf`
 
     ```bash
     246 ...
@@ -115,12 +114,11 @@
     250 <Directory "/data/data/com.termux/files/home/apache">
     251 ...
     252 ...
-    253 ...
     ```
 
     Make sure you create or already exists the directory.
 
-  - Custom file + extensions to be loaded
+  - Custom file & exstension that will be at loaded first
 
     ```bash
     279 ...
@@ -142,15 +140,15 @@
   <details open>
   <summary>Apache & PHP</summary>
 
-  - PHP not loaded just show the code, like this
+  - PHP isn't loaded, just showing the code
 
-    |PHP File not loaded just show the code|
-    |--|
-    |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+  |Like This|
+  |--|
+  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
 
     Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
   
-    Hive comment (#) this text
+    Give comment (#) this text
 
     ```bash
     68 ...
@@ -188,9 +186,9 @@
 
     Now restart apache with `killall httpd; httpd`
 
-    |TARAAA PHP loaded|
-    |--|
-    |![Solved](/img/troubleshooting/taraaa.jpg)|
+  |TARAAA PHP loaded|
+  |--|
+  |![Solved](/img/troubleshooting/taraaa.jpg)|
 
 
   </details>
@@ -231,27 +229,27 @@
     MariaDB [(mysql)]>
     ```
 
-    now setting your root password MySQL you want with
+    Now setting your root password MySQL you want with
 
     ```bash
     set password for 'root'@'localhost' = password('your_password_here');
     ```
 
-    after setting password for root login
+    After setting password for root login
 
-    type 
+    Type 
 
     ```bash
     flush privileges;
     ```
 
-    now exit and relog with 
+    Now exit and relog with 
 
     ```bash
     mysql -u root -p
     ```
 
-    the prompt password fill with your password changed
+    The password column filled with the latest password
 
     |Picture|
     |--|
@@ -267,9 +265,9 @@
     If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
 
 
-    |Access Denied 403 Forbidden|
-    |--|
-    |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+  |Access Denied 403 Forbidden|
+  |--|
+  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
 
     ```bash
     229 ...
