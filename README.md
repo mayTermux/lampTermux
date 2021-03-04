@@ -11,11 +11,11 @@
 
     - ```bash
       $ pkg update && pkg upgrade
-    ```
+      ```
 
     - ```bash
       $ pkg install -y git
-    ```
+      ```
 
     - ```bash
       $ git clone https://github.com/xshin404/lampTermux
@@ -23,7 +23,7 @@
 
     - ```bash
       $ cd lampTermux && chmod +x install.sh
-      ``
+      ```
 
     - ```bash
       $ ./install.sh
@@ -55,6 +55,6 @@
             AllowOverride none
             Require all granted
         </Directory>
-    ```
+      ```
 
     </details>
