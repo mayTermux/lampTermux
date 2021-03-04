@@ -142,9 +142,9 @@
 
   - PHP isn't loaded, just showing the code
 
-  |Like This|
-  |--|
-  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+    |Like This|
+    |--|
+    |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
 
     Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
   
@@ -186,9 +186,9 @@
 
     Now restart apache with `killall httpd; httpd`
 
-  |TARAAA PHP loaded|
-  |--|
-  |![Solved](/img/troubleshooting/taraaa.jpg)|
+    |TARAAA PHP loaded|
+    |--|
+    |![Solved](/img/troubleshooting/taraaa.jpg)|
 
 
   </details>
@@ -198,20 +198,20 @@
 
   - MySQL login but unknown password for the first time
 
-    To fix this run MySQL daemon with 
+    To fix this run MySQL daemon, with 
 
     ```bash
     mysqld_safe
     ```
-    And create new session with side bar Termux
+    After run MySQL Daemon, create new session on side bar Termux
 
-    Login to MySQL with
+    Login to MySQL, with
 
     ```bash
     mysql -u ${whoami}
     ```
 
-    After login type this (on mysql)
+    After login type this (on MySQL)
 
     ```bash
     use mysql;
@@ -249,7 +249,7 @@
     mysql -u root -p
     ```
 
-    The password column filled with the latest password
+    The password column filled with the newest password
 
     |Picture|
     |--|
@@ -264,16 +264,9 @@
 
     If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
 
-
-    <details open>
-    <summary>See</summary>
-
-  |Access Denied 403 Forbidden|
-  |--|
-  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
-
-    </details>
-
+    |Access Denied 403 Forbidden|
+    |--|
+    |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
 
     ```bash
     229 ...
