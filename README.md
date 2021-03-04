@@ -265,9 +265,15 @@
     If you get this error, change this text on apache configuration `$PREFIX/etc/apache2/httpd.conf`
 
 
-  |Access Denied 403 Forbidden|
-  |--|
-  |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+    <details open>
+    <summary>See</summary>
+
+    |Access Denied 403 Forbidden|
+    |--|
+    |![403 Forbidden](/img/troubleshooting/access_denied.jpg)|
+
+    </details>
+
 
     ```bash
     229 ...
