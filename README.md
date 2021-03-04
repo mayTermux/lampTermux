@@ -38,6 +38,7 @@
   <summary>phpmyadmin</summary>
 
   |Access Denied 403 Forbidden|
+  |--|
   |![Access Denied](/img/access_denied.jpg)|
 
   If you got this in phpmyadmin, change configuration on "$PREFIX/etc/apache2/httpd.conf" edit
