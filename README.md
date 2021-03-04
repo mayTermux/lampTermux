@@ -86,7 +86,7 @@
 
   - Start MySQL Daemon
 
-    Before you run 'mysql -u root -p' you need run MySQL daemon fisrt.
+    Before you run `mysql -u root -p` you need run MySQL daemon first.
 
     ```bash
     mysqld_safe
@@ -123,7 +123,7 @@
 
     |Custom PATH 'htdocs'|
     |--|
-    |![Login Apache](/img/userconfigure/htdocs.png)|
+    |![Login Apache](/img/userconfigure/apache/htdocs.png)|
 
     ```bash
     246 ...
@@ -154,7 +154,7 @@
 
     |Custom PATH 'htdocs'|
     |--|
-    |![Login Apache](/img/userconfigure/file.png)|
+    |![Login Apache](/img/userconfigure/apache/file.png)|
 
 
     ```bash
@@ -235,7 +235,7 @@
 
     Now restart apache with `killall httpd; httpd`
 
-    |TARAAA PHP success loaded|
+    |PHP success loaded|
     |--|
     |![Solved](/img/troubleshooting/taraaa.jpg)|
 
@@ -330,6 +330,12 @@
     238 ...
     ```
 
+    |Require all denied|
+    |--|
+    |![Require all denied](/img/troubleshooting/myadmin/denied.png)|
+
+
+
     To
 
     ```bash
@@ -344,6 +350,11 @@
     237 ...
     238 ...
     ```
+
+    |Require all denied|
+    |--|
+    |![Require all denied](/img/troubleshooting/myadmin/granted.png)|
+
 
     Change Require all `denied` to Require all `granted`
 
