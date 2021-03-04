@@ -143,13 +143,14 @@
     250 <Directory "/data/data/com.termux/files/home/apache">
     251 ...
     252 ...
+    253 ...
     ```
 
     Make sure you create or already exists the directory.
 
   - Custom file & extension that will be at loaded first
 
-    |Custom PATH 'htdocs'|
+    |Custom file & extension|
     |--|
     |![Login Apache](/img/userconfigure/apache/file.png)|
 
