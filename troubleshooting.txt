@@ -1,0 +1,51 @@
+Apache & PHP {
+
+    * Open PHP Configuration in PATH $PREFIX/etc/apache2/httpd.conf
+    * Command text this "LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so"
+    * Uncommand text this "#LoadModule mpm_prefork_module libexec/apache2/mod_mpm_prefork.so"
+    * Custom htdocs apache in "DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+      to PATH you want, for example "DocumentRoot "/data/data/com.termux/files/home/apache"
+      make sure you change PATH "<Directory "/data/data/com.termux/files/path/youwant">" to
+    * Custom index.extension first load in
+        <IfModule dir_module>
+            DirectoryIndex index.html # Change to you want, for example "index.php"
+        </IfModule>
+    * Add module PHP to Apache, if not extension .php not be loaded just showing php code
+      add this in the last configuration, this configuration for PHP Version 8
+      "LoadModule php_module libexec/apache2/libphp.so"
+      "AddHandler php-script .php"
+
+    to run apache service type "httpd", to kill pid run "killall httpd"
+}
+
+MySQL {
+
+    * Type "mysqld_safe" to run MySQL Daemon
+    * Type "mysql -u ${whoami}" to login MySQL
+    * After Login to MySQL run "user mysql;"
+    * Setting root MySQL password with command
+      "set password for 'root'@'localhost' = password('your_password_here');"
+    * After Setting password for root run
+      "flush privileges;
+    * And the last one type "exit;"
+
+    After all configuration MySQL root password, to enter MySQL again run
+    "mysql -u root -p" and get prompt password type your password change before
+
+}
+
+phpmyadmin {
+
+    after configuration Apache, PHP & MySQL you can access phpmyadmin in your browser
+    type "localhost:your_port_apache/phpmyadmin" (default port is 8080)
+    if you got "403 Forbidden" in phpmyadmin, change configuration in 
+    "$PREFIX/etc/apache2/httpd.conf"
+    edit text in
+        <Directory />
+            AllowOverride none
+            Require all denied # Change "denied" to "granted"
+        </Directory>
+    and restart apache with "killall httpd; httpd"
+    TARAAA... you LAMP ready to use !!!
+
+}
