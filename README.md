@@ -55,17 +55,29 @@
     httpd
     ```
 
+    |Start Apache|
+    |--|
+    |![Start Apache](/img/command/apache/start.jpg)|
+
   - Kill Apache PID
 
     ```bash
     killall httpd
     ```
 
+    |Stop Apache|
+    |--|
+    |![Stop Apache](/img/command/apache/stop.jpg)|
+
   - Restart Apache
 
     ```
     kilall httpd; httpd
     ```
+
+    |Restart Apache|
+    |--|
+    |![Restart Apache](/img/command/apache/restart.jpg)|
 
   </details>
 
@@ -74,15 +86,31 @@
 
   - Start MySQL Daemon
 
+    Before you run 'mysql -u root -p' you need run MySQL daemon fisrt.
+
     ```bash
     mysqld_safe
     ```
+
+    |Start MySQL Daemon|
+    |--|
+    |![Start Apache](/img/command/mysql/daemon.jpg)|
+
+    to Login you need new session on side bar
+
+    |New Session|
+    |--|
+    |![New Apache](/img/command/mysql/new_session.jpg)|
 
   - Login MySQL (CLI Mode)
 
     ```bash
     mysql -u root -p # After type this you get column password
     ```
+
+    |Login MySQL|
+    |--|
+    |![Login Apache](/img/command/mysql/login.jpg)|
 
   </details>
 
@@ -92,6 +120,10 @@
   <summary>Apache & PHP</summary>
 
   - Custom PATH `htdocs` on `$PREFIX/etc/apache2/httpd.conf`
+
+    |Custom PATH 'htdocs'|
+    |--|
+    |![Login Apache](/img/userconfigure/htdocs.png)|
 
     ```bash
     246 ...
@@ -118,7 +150,12 @@
 
     Make sure you create or already exists the directory.
 
-  - Custom file & exstension that will be at loaded first
+  - Custom file & extension that will be at loaded first
+
+    |Custom PATH 'htdocs'|
+    |--|
+    |![Login Apache](/img/userconfigure/file.png)|
+
 
     ```bash
     279 ...
@@ -150,29 +187,41 @@
   
     Give comment (#) this text
 
-    ```bash
-    68 ...
-    69 ...
-    70 ...
-    71 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
-    72 ...
-    73 ...
-    74 ...
-    ```
-
-    Uncomment this text
+    |Comment this text|
+    |--|
+    |![Login Apache](/img/troubleshooting/php/70.png)|
 
     ```bash
     67 ...
     68 ...
     69 ...
-    70 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    70 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
     71 ...
     72 ...
     73 ...
     ```
 
+    Uncomment this text
+
+    |Uncomment this text|
+    |--|
+    |![Login Apache](/img/troubleshooting/php/69.png)|
+
+    ```bash
+    66 ...
+    67 ...
+    68 ...
+    69 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+    70 ...
+    71 ...
+    72 ...
+    ```
+
     Add module on last configuration
+
+    |Add Module PHP 8|
+    |--|
+    |![Login Apache](/img/troubleshooting/php/540.png)|
 
     ```bash
     536 ...
@@ -186,7 +235,7 @@
 
     Now restart apache with `killall httpd; httpd`
 
-    |TARAAA PHP loaded|
+    |TARAAA PHP success loaded|
     |--|
     |![Solved](/img/troubleshooting/taraaa.jpg)|
 
