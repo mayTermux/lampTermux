@@ -48,8 +48,7 @@
     $ ./install.sh
     ```
 
-  <strong>⚠️ After installation Restart Termux so that the service-daemon is started.</strong>
-  <strong>⚠️ On first boot run 'lamp' to start service.</strong>
+  <strong>⚠️ After installation Restart Termux so that the service-daemon is started and then on first boot type 'lamp' to start service..</strong>
 
   </details>
 
@@ -59,6 +58,8 @@
   <summary><strong>Service</strong></summary>
 
   - Apache
+
+  Script PATH on `/data/data/com.termux/files/usr/bin/lamp`
 
   |Enable Apache Service|Disable Apache Service|
   |--|--|
@@ -76,6 +77,8 @@
   <summary><strong>Web Server Status</strong></summary>
 
   - Index Apache & phpMyAdmin
+
+  Script PATH on `/data/data/com.termux/files/usr/bin/lamp-check`
 
   |No Error|Error 403 Forbidden|
   |--|--|
