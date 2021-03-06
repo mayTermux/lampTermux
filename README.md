@@ -164,10 +164,11 @@
   |--|
   |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
 
-  Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
+  Open apache configuration on PATH `/data/data/com.termux/files/usr/etc/apache2/httpd.conf` 
   
   Give comment (#) this text
 
+  |Comment Text|
   |--|
   |![Login Apache](/img/troubleshooting/php/70.png)|
 
@@ -183,6 +184,7 @@
 
   Uncomment this text
 
+  |Uncomment Text|
   |--|
   |![Login Apache](/img/troubleshooting/php/69.png)|
 
@@ -198,6 +200,7 @@
 
   Add module on last configuration
 
+  |Add Module|
   |--|
   |![Login Apache](/img/troubleshooting/php/540.png)|
 
