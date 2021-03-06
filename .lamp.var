@@ -1,0 +1,167 @@
+#!/bin/bash
+
+df="\e[39m"
+wh="\e[97m"
+lrd="\e[91m"
+lgn="\e[92m"
+lyw="\e[93m"
+
+DIR=`cd $(dirname $0); pwd`
+
+source $DIR/.spinner/spinner.sh
+
+packages=(
+
+    "php-apache"
+    "mariadb"
+    "php"
+    "phpmyadmin"
+
+)
+
+bins=(
+
+    "lamp"
+    "lamp-check"
+
+)
+
+function banner() {
+
+    echo -e " _                $lrd _______ $df                           "
+    echo -e "| |              $lrd (_______)$df                           "
+    echo -e "| | _____ ____  ____  _ _____  ____ ____  _   _ _   _ "
+    echo -e "| |(____ |    \|  _ \| | ___ |/ ___)    \| | | ( \ / )"
+    echo -e "| |/ ___ | | | | |_| | | ____| |   | | | | |_| |) X ( "
+    echo -e " \_)_____|_|_|_|  __/|_|\e[39m_____)_|   |_|_|_|____/(_/ \_)"
+    echo -e "               |_|  \n"
+    echo -e "    Version    : 1.0"
+    echo -e "    Build Date : 6 March 2021"
+    echo -e "    Type       : Installer\n"
+
+}
+
+function install() {
+
+    echo -e "\n⚙️ Installing LAMP Package\n"
+
+    for package in "${packages[@]}"; do
+
+        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎ 📦 $package"
+        sleep 2
+        pkg install -y $package &>/dev/null
+        
+        function check() {
+
+            local ipkg=$(pkg list-installed $package 2> /dev/null | tail -n 1)
+            local cpkg=${ipkg%/*}
+
+            if [[ $cpkg == $package ]]; then
+                stop_spinner $? || exit 1;
+            else
+                sleep 2
+                cp "empty" > /dev/null 2>&1
+                stop_spinner $?
+                start_spinner "‎‎‏‏‎‏‏‎‏‏‎ ‎‏‏‎ ‎ 📦 ‎$fullpkg (retrying) ‎‏‏‎ "
+                pkg install -y $package &>/dev/null
+                check
+            fi
+
+        }
+
+        check
+
+    done
+
+    echo ""
+
+}
+
+function lamptable() {
+
+    echo -e "‏‏‎‏‏‎ ‎‏‏‎  ╭─────────────────────────────╮"
+    echo -e "‏‏‎‏‏‎ ‎‏‏‎  ┃   LAMP Package   ▎   Size   ┃"
+    echo -e "‏‏‎‏‏‎ ‎‏‏‎  ╰─────────────────────────────╯"
+
+    for lamppkg in ${packages[@]}; do
+        name=$(apt show $lamppkg 2> /dev/null | sed -n 1p | awk '{print $2}')
+        size=$(apt show $lamppkg 2> /dev/null | grep Installed-Size: | awk '{print $2$3}')
+        printf "‏‏‎‏‏‎ ‎‏‏‎  ┃   %-10s     ▎  %6s  ┃\n" $name $size
+    done
+
+    echo -e "‏‏‎‏‏‎ ‎‏‏‎  ╰─────────────────────────────╯"
+    
+    echo ""
+
+}
+
+function runit() {
+
+    echo -e "⚙️ Installing Runit Service (autostart)\n"
+
+    start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎ 📦 termux-services"
+    sleep 2
+
+    pkg install -y termux-services &>/dev/null
+    
+    function check() {
+
+        local ipkg=$(pkg list-installed termux-services 2> /dev/null | tail -n 1)
+        local cpkg=${ipkg%/*}
+
+        if [[ $cpkg == termux-services ]]; then
+            stop_spinner $? || exit 1;
+        else
+            sleep 2
+            cp "empty" > /dev/null 2>&1
+            stop_spinner $?
+            start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎ 📦 termux-services (retrying)"
+            pkg install -y termux-services &>/dev/null
+            check
+        fi
+
+    }
+
+    check
+
+    echo ""
+
+}
+
+function sv() { #sv = service
+    
+    local lists=(
+
+        "httpd"
+        "mysqld"
+
+    )
+
+    echo -e "⚙️ Enable and Start Service"
+
+    for list in "${lists[@]}"; do
+
+        start_spinner "‏‏‎‏‏‎ ‎‏‏‎ ‎ 📦 $list"
+        sleep 2
+
+        sv-enable $list
+
+        function check() {
+
+            if [ $? -eq 0 ]; then
+                stop_spinner $?
+            else
+                sleep 2
+                cp "empty" > /dev/null 2>&1
+                stop_spinner $?
+            fi
+
+        }
+
+        check
+
+    done
+
+    echo ""
+
+}
