@@ -48,6 +48,26 @@
 
   </details>
 
+### Shortcut
+
+  <details open>
+  <summary><strong>Apache</strong></summary>
+
+  |Enable Service|Disable Service|
+  |--|--|
+  |![Enable Service](/img/shortcut/apache/enable.jpg)|![Disable Service](/img/shortcut/apache/disable.jpg)|
+
+  </details>
+
+  <details open>
+  <summary><strong>MySQL</strong></summary>
+
+  |Enable Service|Disable Service|
+  |--|--|
+  |![Enable Service](/img/shortcut/mysql/enable.jpg)|![Disable Service](/img/shortcut/mysql/disable.jpg)|
+
+  </details>
+
 ### User Configuration
 
   <details open>
