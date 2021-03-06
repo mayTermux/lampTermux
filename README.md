@@ -48,7 +48,7 @@
 
   </details>
 
-### Shortcut
+### Run
 
   <details open>
   <summary><strong>Service</strong></summary>
@@ -74,7 +74,7 @@
 
   |No Error|Error 403 Forbidden|
   |--|--|
-  |![No Error](/img/shortcut/webserver/success.jpg)|![Error 403 Forbidden](/img/shortcut/denied.jpg)|
+  |![No Error](/img/shortcut/webserver/success.jpg)|![Error 403 Forbidden](/img/shortcut/webserver/denied.jpg)|
 
   </details>
 
@@ -87,8 +87,32 @@
   |--|
   |![Login Apache](/img/userconfigure/apache/htdocs.png)|
 
-  Default PATH on `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs`
-  but i change to `/data/data/com.termux/files/home/apache`. So if you want to custom
-  PATH htdocs change the configuration on `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`.
+  Default PATH htdocs on
+
+  ```bash
+  246 ...
+  247 ...
+  248 ...
+  249 DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+  250 <Directory "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs">
+  251 ...
+  252 ...
+  253 ...
+  ```
+
+  but i custom to
+
+  ```bash
+  246 ...
+  247 ...
+  248 ...
+  249 DocumentRoot "/data/data/com.termux/files/home/apache"
+  250 <Directory "/data/data/com.termux/files/home/apache">
+  251 ...
+  252 ...
+  253 ...
+  ```
+
+  If you want custom htdocs, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
   </details>
