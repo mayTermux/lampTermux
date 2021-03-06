@@ -83,6 +83,8 @@
   <details open>
   <summary><strong>Apache</strong></summary>
 
+  - htdocs
+
   |Custom PATH 'htdocs'|
   |--|
   |![Login Apache](/img/userconfigure/apache/htdocs.png)|
@@ -100,7 +102,7 @@
   253 ...
   ```
 
-  but i custom to
+  but i change to
 
   ```bash
   246 ...
@@ -113,6 +115,40 @@
   253 ...
   ```
 
-  If you want custom htdocs, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
+  - Custom extension file that will be at loaded first
+
+  |Custom extension file|
+  |--|
+  |![Login Apache](/img/userconfigure/apache/file.png)|
+
+  Default extension file is
+
+  ```bash
+  279 ...
+  280 ...
+  281 ...
+  282 <IfModule dir_module>
+  283     DirectoryIndex index.html
+  284 </IfModule>
+  285 ...
+  286 ...
+  287 ...
+  ```
+
+  but i change to
+
+  ```bash
+  279 ...
+  280 ...
+  281 ...
+  282 <IfModule dir_module>
+  283     DirectoryIndex index.php
+  284 </IfModule>
+  285 ...
+  286 ...
+  287 ...
+  ```
+
+  If you want custom htdocs or extension file that will be at loaded first, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
   </details>
