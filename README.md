@@ -51,20 +51,30 @@
 ### Shortcut
 
   <details open>
-  <summary><strong>Apache</strong></summary>
+  <summary><strong>Service</strong></summary>
 
-  |Enable Service|Disable Service|
+  - Apache
+
+  |Enable Apache Service|Disable Apache Service|
   |--|--|
-  |![Enable Service](/img/shortcut/apache/enable.jpg)|![Disable Service](/img/shortcut/apache/disable.jpg)|
+  |![Enable Apache Service](/img/shortcut/apache/enable.jpg)|![Disable Apache Service](/img/shortcut/apache/disable.jpg)|
+
+  - MySQL
+
+  |Enable MySQL Service|Disable MySQL Service|
+  |--|--|
+  |![Enable MySQL Service](/img/shortcut/mysql/enable.jpg)|![Disable MySQL Service](/img/shortcut/mysql/disable.jpg)|
 
   </details>
 
   <details open>
-  <summary><strong>MySQL</strong></summary>
+  <summary><strong>Web Server Status</strong></summary>
 
-  |Enable Service|Disable Service|
+  - Index Apache & phpMyAdmin
+
+  |No Error|Error 403 Forbidden|
   |--|--|
-  |![Enable Service](/img/shortcut/mysql/enable.jpg)|![Disable Service](/img/shortcut/mysql/disable.jpg)|
+  |![No Error](/img/shortcut/webserver/success.jpg)|![Error 403 Forbidden](/img/shortcut/denied.jpg)|
 
   </details>
 
