@@ -152,3 +152,67 @@
   If you want custom htdocs or extension file that will be at loaded first, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
   </details>
+
+### Troubleshooting
+
+  <details open>
+  <summary>Apache & PHP</summary>
+
+  - PHP isn't loaded, just showing the code
+
+  |Like This|
+  |--|
+  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+
+  Open apache configuration on PATH `$PREFIX/etc/apache2/httpd.conf` 
+  
+  Give comment (#) this text
+
+  |--|
+  |![Login Apache](/img/troubleshooting/php/70.png)|
+
+  ```bash
+  67 ...
+  68 ...
+  69 ...
+  70 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+  71 ...
+  72 ...
+  73 ...
+  ```
+
+  Uncomment this text
+
+  |--|
+  |![Login Apache](/img/troubleshooting/php/69.png)|
+
+  ```bash
+  66 ...
+  67 ...
+  68 ...
+  69 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+  70 ...
+  71 ...
+  72 ...
+  ```
+
+  Add module on last configuration
+
+  |--|
+  |![Login Apache](/img/troubleshooting/php/540.png)|
+
+  ```bash
+  536 ...
+  537 ...
+  538 ...
+  539 LoadModule php_module libexec/apache2/libphp.so
+  540 AddHandler php-script .php
+  ```
+
+  This module for <strong>PHP Version 8</strong>
+
+  Now restart apache with `killall httpd`
+
+  |PHP success loaded|
+  |--|
+  |![Solved](/img/troubleshooting/taraaa.jpg)|
