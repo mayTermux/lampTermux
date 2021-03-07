@@ -5,9 +5,35 @@
 </p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/lampTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/lampTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
 
 ##  
-### :octocat: Can install LAMP on Android? Of Course
+### :octocat: Hi, i hope this repository useful for web developer but using android
 
-<strong>All size LAMP take -+ 1GB</strong>
+Here are some details about last version i use
+- **PHP**                        • 8.0.2
+- **MariaDB**                    • 15.1 Distrib 10.5.8-MariaDB, for Android (armv7-a)
+- **Apache**                     • 2.4.46 (Unix)
+- **phpMyAdmin**                 • 5.0.4
+
+  |PHP|MariaDB|Apache|phpMyAdmin|
+  |--|--|--|--|
+  |![PHP Version](/img/version/php.jpg)|![MariaDB Version](/img/version/mariadb.jpg)|![Apache](/img/version/apache.jpg)|![phpMyAdmin](/img/version/phpMyAdmin.jpg)|
+
+
+### Size
+
+  If you want to see package size installed run `./package.sh`
+
+  |Package Size|
+  |--|
+  |![Package Size](/img/package/list-package.jpg)|
+
+### Information
+
+- **URL Apache**                        • http://localhost:8080
+- **Default Port Apache**               • 8080
+- **Default MariaDB User**              • mysql -u $(whoami)
+- **htdocs PATH**                       • /data/data/com.termux/files/home/apache
+- **LAMP Script PATH**                  • /data/data/com.termux/files/usr/bin/lamp
+- **LAMP-Check Script PATH**            • /data/data/com.termux/files/usr/bin/lamp-check
 
 ### Overview
 
@@ -233,7 +259,7 @@
   <details open>
   <summary>MySQL</summary>
 
-  - Can't Login because idk password
+  - Can't login root user because the password didn't know
 
   to fix this, Enable MySQL service
 

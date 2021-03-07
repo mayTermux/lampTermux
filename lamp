@@ -122,12 +122,24 @@ function exec() {
 
         start_spinner "Enable Apache Service"
         sleep 2
+        
+        if [[ -f $PREFIX/var/run/apache2/httpd.pid ]]; then
 
-        if sv-enable httpd; then
-            stop_spinner $?
+            rm $PREFIX/var/run/apache2/httpd.pid
+
+            if sv-enable httpd; then
+                stop_spinner $?
+            else
+                stop_spinner $?
+            fi
+
         else
-            stop_spinner $?
-        fi
+
+            if sv-enable httpd; then
+                stop_spinner $?
+            else
+                stop_spinner $?
+            fi
 
         echo ""
 
