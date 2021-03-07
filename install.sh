@@ -73,6 +73,7 @@ function shortexec() {
 
 shortexec
 runit
+
 echo -e "⚠️ Restart Termux so that the service-daemon is started."
 echo -e "⚠️ On first boot run 'lamp' to start service."
 echo -e "⚠️ To check status web server run 'lamp-check' 
