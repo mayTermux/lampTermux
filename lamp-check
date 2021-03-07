@@ -78,9 +78,13 @@ function status() {
     }
 
     if [[ "$1" == "index" ]]; then
+
         index
+
     elif [[ "$1" == "myAdmin" ]]; then
+
         myAdmin
+
     fi
 
 }

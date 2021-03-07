@@ -185,7 +185,9 @@ function exec() {
         echo ""
 
     else
+
         echo -e $lyw"ERROR :$lrd Bad usage !\n$df"
+
     fi
 
 }
