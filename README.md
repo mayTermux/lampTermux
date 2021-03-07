@@ -300,13 +300,13 @@ Here are some details about last version i use
   MariaDB [(mysql)]> flush privileges;
   ```
 
-  Now exit, type
+  Exit MySQL, type
 
   ```bash
   MariaDB [(mysql)]> exit; # or quit;
   ```
 
-  Now your root password has benn changed, to login type
+  Now your root password has been changed, to login type
 
   ```bash
   $ mysql -u root -p
