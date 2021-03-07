@@ -15,7 +15,7 @@ Here are some details about last version i use
 
 |PHP|MariaDB|Apache|phpMyAdmin|
 |--|--|--|--|
-|![PHP Version](/img/version/flameshot/php.png)|![MariaDB Version](/img/version/flameshot/mariadb.png)|![Apache](/img/version/flameshot/apache.png)|![phpMyAdmin](/img/version/flameshot/phpMyAdmin.png)|
+|![PHP Version](/img/version/flameshot/php.png)|![MariaDB Version](/img/version/flameshot/mariadb2.png)|![Apache](/img/version/flameshot/apache.png)|![phpMyAdmin](/img/version/flameshot/phpMyAdmin.png)|
 
 ### Size
 
@@ -31,8 +31,6 @@ Here are some details about last version i use
 - **Default Port Apache**               `8080`
 - **Default MariaDB User**              `mysql -u $(whoami)`
 - **htdocs PATH**                       `$HOME/apache`
-- **LAMP Script PATH**                  `$PREFIX/bin/lamp`
-- **LAMP-Check Script PATH**            `$PREFIX/bin/lamp-check`
 
 ### Overview
 
@@ -135,7 +133,7 @@ Here are some details about last version i use
   253 ...
   ```
 
-  but i change to
+  my configuration
 
   ```bash
   246 ...
@@ -168,7 +166,7 @@ Here are some details about last version i use
   287 ...
   ```
 
-  but i change to
+  my configuration
 
   ```bash
   279 ...
@@ -355,6 +353,20 @@ Here are some details about last version i use
   |Require all granted|
   |--|
   |![Require all denied](/img/troubleshooting/myadmin/granted.png)|
+
+  ```bash
+  229 ...
+  230 ...
+  231 ...
+  232 <Directory />
+  233       AllowOverride none
+  234       Require all granted
+  235 </Directory>
+  236 ...
+  237 ...
+  238 ...
+  ```
+
 
   Change Require all `denied` to Require all `granted`
 

@@ -141,6 +141,8 @@ function exec() {
                 stop_spinner $?
             fi
 
+        fi
+
         echo ""
 
     elif [[ $Choose == 2 ]]; then
