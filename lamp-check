@@ -28,7 +28,7 @@ function status() {
         local URL="http://localhost:8080"
         local iProtocol=`curl -I $URL 2> /dev/null | sed -n 1p | awk '{print $1}'`
         local iStatus=`curl -I $URL 2> /dev/null | sed -n 1p | awk '{print $2}'`
-        local iServer=`curl -I $URL 2> /dev/null | sed -n 3p | awk '{print $1" "$2" "$3}'`
+        local iServer=`curl -I $URL 2> /dev/null | sed -n 3p | awk '{print $2" "$3}'`
         local iContent=`curl -I $URL 2> /dev/null | grep Content-Type: | awk '{print $2" "$3}'`
 
         echo -e "\n⚙️ Info Web Server Apache (index)"
@@ -52,7 +52,7 @@ function status() {
         local URL="http://localhost:8080/phpmyadmin"
         local iProtocol=`curl -I $URL 2> /dev/null | sed -n 1p | awk '{print $1}'`
         local iStatus=`curl -I $URL 2> /dev/null | sed -n 1p | awk '{print $2}'`
-        local iServer=`curl -I $URL 2> /dev/null | sed -n 3p | awk '{print $1" "$2" "$3}'`
+        local iServer=`curl -I $URL 2> /dev/null | sed -n 3p | awk '{print $2" "$3}'`
         local iContent=`curl -I $URL 2> /dev/null | grep Content-Type: | awk '{print $2" "$3}'`
 
         echo -e "⚙️ Info phpMyAdmin"
