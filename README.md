@@ -267,7 +267,7 @@ Here are some details about last version i use
   After enable MySQL Service, now login mysql with root user.
 
   ```bash
-  mysql -u $(whoami)
+  $ mysql -u $(whoami)
   ```
 
   After login, type this on MySQL (To use database mysql)
