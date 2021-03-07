@@ -303,7 +303,7 @@ Here are some details about last version i use
   Now exit, type
 
   ```bash
-  MariaDB [(mysql)]> exit; or quit;
+  MariaDB [(mysql)]> exit; # or quit;
   ```
 
   Now your root password has benn changed, to login type
