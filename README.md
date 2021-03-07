@@ -273,7 +273,7 @@ Here are some details about last version i use
   After login, type this on MySQL (To use database mysql)
 
   ```bash
-  use mysql;
+  MariaDB [(none)]> use mysql;
   ```
 
   Database changed
@@ -291,19 +291,19 @@ Here are some details about last version i use
   Now setting your root password MySQL you want, with
 
   ```bash
-  set password for 'root'@'localhost' = password('your_password_here');
+  MariaDB [(mysql)]> set password for 'root'@'localhost' = password('your_password_here');
   ```
 
   After setting password for root login, type
 
   ```bash
-  flush privileges;
+  MariaDB [(mysql)]> flush privileges;
   ```
 
   Now exit, type
 
   ```bash
-  exit; or quit;
+  MariaDB [(mysql)]> exit; or quit;
   ```
 
   Now your root password has benn changed, to login type
