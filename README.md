@@ -36,7 +36,7 @@ Here are some details about last version i use
 
   <details open>
 
-  |Info|Login|Login|
+  |Info|Login|Database|
   |--|--|--|
   |![PHP Info](/img/overview/php_info.jpg)|![phpMyAdmin Login](/img/overview/mysql_login.jpg)|![phpMyAdmin](/img/overview/mysql.jpg)|
 
