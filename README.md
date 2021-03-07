@@ -8,32 +8,31 @@
 ### :octocat: Hi, i hope this repository useful for web developer but using android
 
 Here are some details about last version i use
-- **PHP**                        • 8.0.2
-- **MariaDB**                    • 15.1 Distrib 10.5.8-MariaDB, for Android (armv7-a)
-- **Apache**                     • 2.4.46 (Unix)
-- **phpMyAdmin**                 • 5.0.4
+- **PHP**                        `8.0.2`
+- **MariaDB**                    `15.1 Distrib 10.5.8-MariaDB, for Android (armv7-a)`
+- **Apache**                     `2.4.46 (Unix)`
+- **phpMyAdmin**                 `5.0.4`
 
-  |PHP|MariaDB|Apache|phpMyAdmin|
-  |--|--|--|--|
-  |![PHP Version](/img/version/php.jpg)|![MariaDB Version](/img/version/mariadb.jpg)|![Apache](/img/version/apache.jpg)|![phpMyAdmin](/img/version/phpMyAdmin.jpg)|
-
+|PHP|MariaDB|Apache|phpMyAdmin|
+|--|--|--|--|
+|![PHP Version](/img/version/flameshot/php.png)|![MariaDB Version](/img/version/flameshot/mariadb.png)|![Apache](/img/version/flameshot/apache.png)|![phpMyAdmin](/img/version/flameshot/phpMyAdmin.png)|
 
 ### Size
 
-  If you want to see package size installed run `./package.sh`
+  If you want to see size package installation, run `./package.sh`
 
   |Package Size|
   |--|
-  |![Package Size](/img/package/list-package.jpg)|
+  |![Package Size](/img/package/package.png)|
 
 ### Information
 
-- **URL Apache**                        • http://localhost:8080
-- **Default Port Apache**               • 8080
-- **Default MariaDB User**              • mysql -u $(whoami)
-- **htdocs PATH**                       • /data/data/com.termux/files/home/apache
-- **LAMP Script PATH**                  • /data/data/com.termux/files/usr/bin/lamp
-- **LAMP-Check Script PATH**            • /data/data/com.termux/files/usr/bin/lamp-check
+- **URL Apache**                        `http://localhost:8080`
+- **Default Port Apache**               `8080`
+- **Default MariaDB User**              `mysql -u $(whoami)`
+- **htdocs PATH**                       `$HOME/apache`
+- **LAMP Script PATH**                  `$PREFIX/bin/lamp`
+- **LAMP-Check Script PATH**            `$PREFIX/bin/lamp-check`
 
 ### Overview
 
