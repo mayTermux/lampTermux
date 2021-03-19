@@ -6,8 +6,8 @@ source $DIR/.lamp.var
 source $DIR/.spinner/spinner.sh
 
 banner
-install
 lamptable
+install
 
 function config() {
 
