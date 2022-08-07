@@ -17,7 +17,7 @@ printInfoPackages() {
   ╭─ LAMP Packages ─────────────────────────────────────────────────╮"
   echo -e "  │                                                                 │"
   printf "  │    %-10s    %-10s    %-13s    %-14s  │\n" "Name" "Version" "Download Size" "Installed Size"
-  printf "  │    %-10s          %-10s       %-13s    %-14s  │\n" "────" "───────" "─────────────" "──────────────"
+  printf "  │    %-10s    %-10s    %-13s    %-14s  │\n" "──────────" "──────────" "─────────────" "──────────────"
 
     for PACKAGE in ${PACKAGES[@]}; do
 
