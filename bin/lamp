@@ -1,0 +1,167 @@
+#!/usr/bin/env bash
+
+MENU=(
+    "Start Apache"
+    "Start MySQL"
+    "Stop Apache"
+    "Stop MySQL"
+)
+
+COLOR_BASED="\e[39m"
+COLOR_DANGER="\e[91m"
+COLOR_WARNING="\e[93m"
+COLOR_SUCCESS="\e[92m"
+COLOR_SKY="\e[34m"
+COLOR_DEFAULT="\e[39m"
+COLOR_RESET="\033[0m"
+
+OK="\u2714"
+FAIL="\u2718"
+COG="\u2699"
+
+_spinner() {
+    # $1 start/stop
+    #
+    # on start: $2 display message
+    # on stop : $2 process exit status
+    #           $3 spinner function pid (supplied from stop_spinner)
+
+    local on_success="done"
+    local on_fail="fail"
+    local white="\e[1;37m"
+    local green="\e[1;32m"
+    local red="\e[1;31m"
+    local nc="\e[0m"
+
+    case $1 in
+        start)
+            # calculate the column where spinner and status msg will be displayed
+            let column=$(tput cols)-${#2}-32
+            # display message and position the cursor in $column column
+            echo -ne "  ${2}"
+            printf "%${column}s"
+
+            # start spinner
+            i=1
+            sp='\|/-'
+            delay=${SPINNER_DELAY:-0.2}
+
+            while :
+            do
+                printf "\b${sp:i++%${#sp}:1}"
+                sleep $delay
+            done
+            ;;
+        stop)
+            if [[ -z ${3} ]]; then
+                echo "spinner is not running.."
+                exit 1
+            fi
+
+            kill $3 > /dev/null 2>&1
+
+            # inform the user uppon success or failure
+            echo -en "\b["
+            if [[ $2 -eq 0 ]]; then
+                echo -en "${green}${OK}${nc}"
+            else
+                echo -en "${red}${FAIL}${nc}"
+            fi
+            echo -e "]"
+            ;;
+        *)
+            echo "invalid argument, try {start/stop}"
+            exit 1
+            ;;
+    esac
+}
+
+start_spinner() {
+    # $1 : msg to display
+    _spinner "start"      "${1}" &
+    # set global spinner pid
+    _sp_pid=$!
+    disown
+}
+
+stop_spinner() {
+    # $1 : command exit status
+    _spinner "stop" $1 $_sp_pid
+    unset _sp_pid
+}
+
+banner() {
+    if [ $1 == "enable" ]; then
+        echo -e "
+  ╭────────────────────╮
+  │  ${COG} Enable Service  │
+  ╰────────────────────╯
+  "
+    else
+        echo -e "
+  ╭─────────────────────╮
+  │  ${COG} Disable Service  │
+  ╰─────────────────────╯
+  "
+    fi
+}
+
+service() {
+    if sv-${1} ${2}; then
+        stop_spinner $?
+    else
+        stop_spinner $?
+    fi
+}
+
+run() {
+    banner ${1}
+    start_spinner "· ${2} ${COLOR_WARNING}${3}${COLOR_DEFAULT} Service"
+    sleep 1s
+    service ${1} ${4}
+}
+
+switchCase() {
+
+  read -p "  ${1}: " SWITCH_CASE
+
+  case "$SWITCH_CASE" in
+
+    "0" )
+        if [ -f $PREFIX/var/run/apache2/httpd.pid ]; then
+            rm $PREFIX/var/run/apache2/httpd.pid
+        fi
+        run "enable" "Start" "Apache" "httpd"
+    ;;
+
+    "1" )
+        run "enable" "Start" "MySQL" "mysqld"
+    ;;
+
+    "2" )
+        run "disable" "Stop" "Apache" "httpd"
+    ;;
+
+    "3" )
+        run "disable" "Stop" "MySQL" "mysqld"
+    ;;
+
+  esac
+
+}
+
+menu() {
+  echo -e "
+  ╭─ MENU ──────────────╮"
+  echo -e "  │                     │"
+  printf "  │  %-3s  %-12s  │\n" "No." "Name"
+  printf "  │  %-3s  %-20s  │\n" "───" "────────────"
+  for (( i=0; i<4; i++ )); do
+    printf "  │  %-3s  %-12s  │\n" "[$i]" "${MENU[$i]}"
+  done
+  echo -e "  │                     │"
+  echo -e "  ╰─────────────────────╯\n"
+}
+
+menu
+switchCase "Choose"

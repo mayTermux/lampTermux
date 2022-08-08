@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+HOST="127.0.0.1"
+PORT="8080"
+
+response() {
+
+    PROTOCOL=`curl -I ${1} 2> /dev/null | sed -n 1p | awk '{printf $1}'`
+    STATUS=`curl -I ${1} 2> /dev/null | sed -n 1p | awk '{printf $2}'`
+    SERVER=`curl -I ${1} 2> /dev/null | sed -n 3p | awk '{print $2" "$3}'`
+    CONTENT=`curl -I ${1} 2> /dev/null | grep Content-Type: | awk '{printf $2" "$3}'`
+
+    echo -e "
+  ╭─ LAMP CHECK ──────────────────────────────────────────╮"
+    echo -e "  │                                                       │"
+ 
+    echo -e "  │  Request URL: http://${HOST}:${PORT}                   │"
+    echo -e "  │                                                       │"
+    printf "  │  %-10s  %-8s  %-29s  │\n" "PATH" "Header" "Value"
+    printf "  │  %-10s  %-8s  %-29s  │\n" "──────────" "────────" "─────────────────────────────"
+    echo -e "  │                                                       │"
+
+    printf "  │  %-11s %-8s  %-29s  │\n" ${2} "Protocol" ${PROTOCOL}
+
+    if [ ${STATUS} == "200" ]; then
+        printf "  │  %-10s  %-8s  %-31s│\n" "" "Status" "${STATUS} OK"
+    elif [ ${STATUS} == "301" ]; then
+        printf "  │  %-10s  %-8s  %-31s│\n" "" "Status" "${STATUS} Moved Permanently"
+    elif [ ${STATUS} == "403" ]; then
+        printf "  │  %-10s  %-8s  %-31s│\n" "" "Status" "${STATUS} Forbidden"
+    fi
+
+    # printf "  │  %-10s  %-8s  %b  │\n" "" "Server" ${SERVER}
+    echo -e "  │              Server    ${SERVER}           │"
+    echo -e "  │              Content   ${CONTENT}  │"
+    # printf "  │  %-10s  %-8s  %-21s  %-20s  %-29s" ${2} ${PROTOCOL} ${STATUS} ${SERVER} ${CONTENT}
+    echo -e "  │                                                       │"
+    echo -e "  ╰───────────────────────────────────────────────────────╯\n"
+}
+
+response "http://${HOST}:${PORT}/phpmyadmin" "/phpmyadmin"
+response "http://${HOST}:${PORT}" "/"

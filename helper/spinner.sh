@@ -19,9 +19,6 @@
 #
 # Also see: test.sh
 
-OK="\u2714"
-FAIL="\u2718"
-
 function _spinner() {
     # $1 start/stop
     #
