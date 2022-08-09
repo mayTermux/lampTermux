@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
-MENU=(
-    "Start Apache"
-    "Start MySQL"
-    "Stop Apache"
-    "Stop MySQL"
-)
+HOST=127.0.0.1
+PORT=8080
 
+COLOR_DEFAULT="\e[39m"
+COLOR_RESET="\033[0m"
 COLOR_BASED="\e[39m"
 COLOR_DANGER="\e[91m"
 COLOR_WARNING="\e[93m"
 COLOR_SUCCESS="\e[92m"
 COLOR_SKY="\e[34m"
-COLOR_DEFAULT="\e[39m"
-COLOR_RESET="\033[0m"
+
+MENU=(
+    "Start Apache"
+    "Start MySQL"
+    "Stop Apache"
+    "Stop MySQL"
+    "Check Apache"
+    "Check Phpmyadmin"
+)
 
 OK="\u2714"
 FAIL="\u2718"
@@ -114,11 +119,50 @@ service() {
     fi
 }
 
-run() {
+runService() {
     banner ${1}
     start_spinner "· ${2} ${COLOR_WARNING}${3}${COLOR_DEFAULT} Service"
     sleep 1s
     service ${1} ${4}
+}
+
+response() {
+    if curl -I ${1} &>/dev/null; then
+        PROTOCOL=`curl -I ${1} 2> /dev/null | sed -n 1p | awk '{printf $1}'`
+        STATUS=`curl -I ${1} 2> /dev/null | sed -n 1p | awk '{printf $2}'`
+        SERVER=`curl -I ${1} 2> /dev/null | sed -n 3p | awk '{print $2" "$3}'`
+        CONTENT=`curl -I ${1} 2> /dev/null | grep Content-Type: | awk '{printf $2" "$3}'`
+
+        echo -e "
+  ╭─ LAMP CHECK ───────────────────────────────────╮"
+        echo -e "  │                                                │"
+    
+        echo -e "  │  Request URL: http://${HOST}:${PORT}            │"
+        echo -e "  │                                                │"
+        printf "  │  %-11s  %-8s  %-21s  │\n" "PATH" "Header" "Value"
+        printf "  │  %-11s  %-8s  %-20s  │\n" "───────────" "────────" "─────────────────────"
+        echo -e "  │                                                │"
+
+        printf "  │  %-11s  %-8s  %-21s  │\n" ${2} "Protocol" ${PROTOCOL}
+
+        if [[ ${STATUS} == "200" ]]; then
+            printf "  │  %-10s   %-8s  ${COLOR_SUCCESS}%-23s${COLOR_DEFAULT}│\n" "" "Status" "${STATUS} OK"
+        elif [[ ${STATUS} == "301" ]]; then
+            printf "  │  %-10s   %-8s  ${COLOR_SUCCESS}%-23s${COLOR_DEFAULT}│\n" "" "Status" "${STATUS} Moved Permanently"
+        elif [[ ${STATUS} == "403" ]]; then
+            printf "  │  %-10s   %-8s  ${COLOR_DANGER}%-23s${COLOR_DEFAULT}│\n" "" "Status" "${STATUS} Forbidden"
+        fi
+
+        echo -e "  │               Server    ${SERVER}   │"
+        echo -e "  │                                                │"
+        echo -e "  ╰────────────────────────────────────────────────╯\n"
+    else
+        echo -e "
+  ╭──────────────────╮
+  │  Server Stopped  │
+  ╰──────────────────╯
+  "
+    fi
 }
 
 switchCase() {
@@ -131,19 +175,27 @@ switchCase() {
         if [ -f $PREFIX/var/run/apache2/httpd.pid ]; then
             rm $PREFIX/var/run/apache2/httpd.pid
         fi
-        run "enable" "Start" "Apache" "httpd"
+        runService "enable" "Start" "Apache" "httpd"
     ;;
 
     "1" )
-        run "enable" "Start" "MySQL" "mysqld"
+        runService "enable" "Start" "MySQL" "mysqld"
     ;;
 
     "2" )
-        run "disable" "Stop" "Apache" "httpd"
+        runService "disable" "Stop" "Apache" "httpd"
     ;;
 
     "3" )
-        run "disable" "Stop" "MySQL" "mysqld"
+        runService "disable" "Stop" "MySQL" "mysqld"
+    ;;
+
+    "4" )
+        response "${HOST}:${PORT}" "/"
+    ;;
+
+    "5" )
+        response "${HOST}:${PORT}/phpmyadmin" "/phpmyadmin"
     ;;
 
   esac
@@ -152,15 +204,16 @@ switchCase() {
 
 menu() {
   echo -e "
-  ╭─ MENU ──────────────╮"
-  echo -e "  │                     │"
-  printf "  │  %-3s  %-12s  │\n" "No." "Name"
-  printf "  │  %-3s  %-20s  │\n" "───" "────────────"
-  for (( i=0; i<4; i++ )); do
-    printf "  │  %-3s  %-12s  │\n" "[$i]" "${MENU[$i]}"
+  ╭─ MENU ──────────────────╮"
+  echo -e "  │                         │"
+  printf "  │  %-3s  %-16s  │\n" "No." "Name"
+  printf "  │  %-3s  %-24s  │\n" "───" "────────────────"
+  echo -e "  │                         │"
+  for (( i=0; i<6; i++ )); do
+    printf "  │  %-3s  %-16s  │\n" "[$i]" "${MENU[$i]}"
   done
-  echo -e "  │                     │"
-  echo -e "  ╰─────────────────────╯\n"
+  echo -e "  │                         │"
+  echo -e "  ╰─────────────────────────╯\n"
 }
 
 menu
