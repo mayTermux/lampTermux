@@ -2,7 +2,7 @@
   <a name="top" href="#">
      <img alt="xshin404/lampTermux" height="60%" width="100%" src="https://user-images.githubusercontent.com/64394320/189678375-06f48ebe-aa01-4f36-aafb-4530cb572adb.png"/>
   </a>
-</p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/lampTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/lampTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
+</p>
 
 ### Installation
 
