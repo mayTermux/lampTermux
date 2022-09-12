@@ -241,9 +241,27 @@ The password column filled with the newest password
   <details open>
   <summary>phpMyAdmin</summary>
 
+- mysqli::real_connect(): (HY000/2002): No such file or directory
+
+| Can't Login                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- |
+| ![phpmyadmin-error](https://user-images.githubusercontent.com/64394320/189691727-b1095c8b-c927-4e27-9f28-7e0ff0eff6a4.png) |
+
+If you get this error, the solution is change value on file `/data/data/com.termux/files/usr/etc/phpmyadmin/config.inc.php`:
+
+```php
+$cfg['Servers'][$i]['host'] = 'localhost';
+```
+
+to
+
+```php
+$cfg['Servers'][$i]['host'] = '127.0.0.1';
+```
+
 - Access Denied 403 Forbidden
 
-| 403 Forbidden                                                                                                                  | lamp-check                                                                                                                 |
+| 403 Forbidden                                                                                                                  | lamp check phpmyadmin                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | ![phpmyadmin-forbidden](https://user-images.githubusercontent.com/64394320/189688664-2e5f4097-c527-45d5-a998-49dbabad00b5.png) | ![phpmyadmin-check](https://user-images.githubusercontent.com/64394320/189688675-09880c5a-99e6-443a-abee-5774312a2299.png) |
 
