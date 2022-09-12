@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-function setCursor() {
+setCursor() {
 
   setterm -cursor ${1}
 

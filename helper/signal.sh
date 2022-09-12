@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-function handleInterruptByUser() {
+handleInterruptByUser() {
 
   pkill com.termux
 

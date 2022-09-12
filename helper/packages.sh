@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 PACKAGES=(
     php-apache mariadb
     php phpmyadmin termux-services

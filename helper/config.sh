@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 config() {
   echo -e "
   ╭──────────────────────────────────╮
@@ -9,8 +7,7 @@ config() {
 
   start_spinner "· Replace ${COLOR_WARNING}httpd.conf${COLOR_DEFAULT}"
   sleep 2s
-#   if cp http.conf $PREFIX/etc/apache2/httpd.conf; then
-  if cp &>/dev/null; then
+  if cp httpd.conf $PREFIX/etc/apache2/httpd.conf; then
     stop_spinner $?
   else
     sleep 2

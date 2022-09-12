@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 htdocs() {
   echo -e "
   ╭───────────────────────────────────────╮
@@ -8,6 +6,7 @@ htdocs() {
   "
 
   start_spinner "· Creating ${COLOR_WARNING}/home/htdocs${COLOR_DEFAULT}"
+  sleep 2s
 
     if [[ -d $HOME/htdocs ]]; then
         echo "<?php phpinfo(); ?>" >> $HOME/htdocs/index.php

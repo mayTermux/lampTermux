@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
-
 BINS=(
     lamp
-    lamp-check
 )
 
 shortcutexec() {
@@ -16,7 +13,7 @@ shortcutexec() {
     start_spinner "· Creating ${COLOR_WARNING}/bin/${BIN}${COLOR_DEFAULT}"
     sleep 2s
 
-    # cp ${BIN} $PREFIX/bin/${BIN}
+    cp bin/${BIN} $PREFIX/bin/${BIN}
 
     if [ -f $PREFIX/bin/${BIN} ]; then
         stop_spinner $?

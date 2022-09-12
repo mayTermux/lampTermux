@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-function switchCase() {
+switchCase() {
 
   setCursor on
 
@@ -17,13 +15,13 @@ function switchCase() {
     ;;
 
     n|N )
-      stat "ERROR" "Warning" "${COLOR_DANGER}Abort.${COLOR_BASED}"
+      logError "\n\n  error" "" "" "Abort."
       exit 1
     ;;
 
     * )
-      stat "ERROR" "Warning" "Unknown '${COLOR_DANGER}${SWITCH_CASE}${COLOR_BASED}'"
-      switchCase ${1} ${2} ${3}
+      logError "\n\n  error" "Uknown answer '${SWITCH_CASE}'" "" "Please input the correct answer"
+      exit 1
     ;;
 
   esac
