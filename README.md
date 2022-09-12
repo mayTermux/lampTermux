@@ -35,11 +35,11 @@ cd lampTermux
 
   <details open>
 
-<!-- | PHP Info                                                                                                          | phpmyadmin Login                                                                                                           | phpmyadmin                                                                                                           |
+| PHP Info                                                                                                          | phpmyadmin Login                                                                                                           | phpmyadmin                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| ![phpinfo](https://user-images.githubusercontent.com/64394320/189680781-aadcc7a2-f711-43d9-aa12-18fd52b4fc87.png) | ![phpmyadmin-login](https://user-images.githubusercontent.com/64394320/189680994-f903d183-b16c-4af9-93ef-c9cae5b5c557.png) | ![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png) | -->
+| ![phpinfo](https://user-images.githubusercontent.com/64394320/189680781-aadcc7a2-f711-43d9-aa12-18fd52b4fc87.png) | ![phpmyadmin-login](https://user-images.githubusercontent.com/64394320/189680994-f903d183-b16c-4af9-93ef-c9cae5b5c557.png) | ![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png) |
 
-- PHP Information
+<!-- - PHP Information
 
 ![phpinfo](https://user-images.githubusercontent.com/64394320/189680781-aadcc7a2-f711-43d9-aa12-18fd52b4fc87.png)
 
@@ -49,7 +49,7 @@ cd lampTermux
 
 - phpmyadmin
 
-![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png)
+![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png) -->
 
   </details>
 
