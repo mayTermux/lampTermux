@@ -1,111 +1,55 @@
 <p align="center">
   <a name="top" href="#">
-     <img alt="xshin404/lampTermux" height="60%" width="100%" src="/img/banner/ascii2.png"/>
+     <img alt="xshin404/lampTermux" height="60%" width="100%" src="https://user-images.githubusercontent.com/64394320/189678375-06f48ebe-aa01-4f36-aafb-4530cb572adb.png"/>
   </a>
-</p> <img alt="" align="right" src="https://badges.pufler.dev/visits/xshin404/lampTermux?style=flat-square&label=Visits&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/> <img alt="" align="right" src="https://img.shields.io/github/repo-size/xshin404/lampTermux?style=flat-square&label=Size&color=fa74b2&labelColor=373e4d"/>
+</p>
 
-##  
-### :octocat: Hi, i hope this repository useful for web developer but using android
+## Installation
 
-Here are some details about last version i use
-- **PHP**                        `8.0.2`
-- **MariaDB**                    `15.1 Distrib 10.5.8-MariaDB, for Android (armv7-a)`
-- **Apache**                     `2.4.46 (Unix)`
-- **phpMyAdmin**                 `5.0.4`
+- Download or clone the latest release.
 
-|PHP|MariaDB|Apache|phpMyAdmin|
-|--|--|--|--|
-|![PHP Version](/img/version/flameshot/php.png)|![MariaDB Version](/img/version/flameshot/mariadb2.png)|![Apache](/img/version/flameshot/apache.png)|![phpMyAdmin](/img/version/flameshot/phpMyAdmin.png)|
+```bash
+git clone https://github.com/mayTermux/lampTermux
+```
 
-### Size
+- Move to directory
 
-  If you want to see size package installation, run `./package.sh`
+```bash
+cd lampTermux
+```
 
-  |Package Size|
-  |--|
-  |![Package Size](/img/package/package.png)|
+- Run installer script
+
+```bash
+./install.sh
+```
 
 ### Information
 
-- **URL Apache**                        `http://localhost:8080`
-- **Default Port Apache**               `8080`
-- **Default MariaDB User**              `mysql -u $(whoami)`
-- **htdocs PATH**                       `$HOME/apache`
+- **URL Apache** `http://localhost:8080`
+- **Default Port Apache** `8080`
+- **Default MariaDB User** `mysql -u $(whoami)`
+- **htdocs PATH** `$HOME/htdocs`
 
 ### Overview
 
   <details open>
 
-  |Info|Login|Database|
-  |--|--|--|
-  |![PHP Info](/img/overview/php_info.jpg)|![phpMyAdmin Login](/img/overview/mysql_login.jpg)|![phpMyAdmin](/img/overview/mysql.jpg)|
+<!-- | PHP Info                                                                                                          | phpmyadmin Login                                                                                                           | phpmyadmin                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| ![phpinfo](https://user-images.githubusercontent.com/64394320/189680781-aadcc7a2-f711-43d9-aa12-18fd52b4fc87.png) | ![phpmyadmin-login](https://user-images.githubusercontent.com/64394320/189680994-f903d183-b16c-4af9-93ef-c9cae5b5c557.png) | ![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png) | -->
 
-  </details>
+- PHP Information
 
-### Installation
+![phpinfo](https://user-images.githubusercontent.com/64394320/189680781-aadcc7a2-f711-43d9-aa12-18fd52b4fc87.png)
 
-  <details open>
-  <summary>Termux (Android)</summary>
+- phpmyadmin Login
 
-  - ```bash
-    $ pkg update && pkg upgrade
-    ```
+![phpmyadmin-login](https://user-images.githubusercontent.com/64394320/189680994-f903d183-b16c-4af9-93ef-c9cae5b5c557.png)
 
-  - ```bash
-    $ pkg install ncurses-utils git
-    ```
+- phpmyadmin
 
-  - ```bash
-    $ git clone https://github.com/xshin404/lampTermux
-    ```
-
-  - ```bash
-    $ cd lampTermux
-    ```
-
-  - ```bash
-    $ chmod +x install.sh
-    ```
-
-  - ```bash
-    $ ./install.sh
-    ```
-
-  <strong>⚠️ After installation Restart Termux so that the service-daemon is started and then on first boot type 'lamp' to start service..</strong>
-
-  </details>
-
-### Run
-
-  <details open>
-  <summary><strong>Service</strong></summary>
-
-  - Apache
-
-  Script PATH on `/data/data/com.termux/files/usr/bin/lamp`
-
-  |Enable Apache Service|Disable Apache Service|
-  |--|--|
-  |![Enable Apache Service](/img/shortcut/apache/enable.jpg)|![Disable Apache Service](/img/shortcut/apache/disable.jpg)|
-
-  - MySQL
-
-  |Enable MySQL Service|Disable MySQL Service|
-  |--|--|
-  |![Enable MySQL Service](/img/shortcut/mysql/enable.jpg)|![Disable MySQL Service](/img/shortcut/mysql/disable.jpg)|
-
-  </details>
-
-  <details open>
-  <summary><strong>Web Server Status</strong></summary>
-
-  - Index Apache & phpMyAdmin
-
-  Script PATH on `/data/data/com.termux/files/usr/bin/lamp-check`
-
-  |No Error|Error 403 Forbidden|
-  |--|--|
-  |![No Error](/img/shortcut/webserver/success.jpg)|![Error 403 Forbidden](/img/shortcut/webserver/denied.jpg)|
+![phpmyadmin](https://user-images.githubusercontent.com/64394320/189681142-37ec39dd-6f38-4890-8934-d05b3711ba79.png)
 
   </details>
 
@@ -114,73 +58,46 @@ Here are some details about last version i use
   <details open>
   <summary><strong>Apache</strong></summary>
 
-  - htdocs
+- htdocs
 
-  |Custom PATH 'htdocs'|
-  |--|
-  |![Login Apache](/img/userconfigure/apache/htdocs.png)|
+| Custom PATH 'htdocs'                                                                                            |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189682430-0eb8b308-6d8d-41b2-ba8d-61e094e8c292.png) |
 
-  Default PATH htdocs on
+Default PATH htdocs on
 
-  ```bash
-  246 ...
-  247 ...
-  248 ...
-  249 DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
-  250 <Directory "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs">
-  251 ...
-  252 ...
-  253 ...
-  ```
+```bash
+246 ...
+247 ...
+248 ...
+249 DocumentRoot "/data/data/com.termux/files/home/htdocs"
+250 <Directory "/data/data/com.termux/files/home/htdocs">
+251 ...
+252 ...
+253 ...
+```
 
-  my configuration
+- Custom extension file that will be at loaded first
 
-  ```bash
-  246 ...
-  247 ...
-  248 ...
-  249 DocumentRoot "/data/data/com.termux/files/home/apache"
-  250 <Directory "/data/data/com.termux/files/home/apache">
-  251 ...
-  252 ...
-  253 ...
-  ```
+| Custom extension file                                                                                           |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189683156-ebc48379-568f-45c8-bbf2-ca60e25337c8.png) |
 
-  - Custom extension file that will be at loaded first
+Default extension file is
 
-  |Custom extension file|
-  |--|
-  |![Login Apache](/img/userconfigure/apache/file.png)|
+```bash
+279 ...
+280 ...
+281 ...
+282 <IfModule dir_module>
+283     DirectoryIndex index.php
+284 </IfModule>
+285 ...
+286 ...
+287 ...
+```
 
-  Default extension file is
-
-  ```bash
-  279 ...
-  280 ...
-  281 ...
-  282 <IfModule dir_module>
-  283     DirectoryIndex index.html
-  284 </IfModule>
-  285 ...
-  286 ...
-  287 ...
-  ```
-
-  my configuration
-
-  ```bash
-  279 ...
-  280 ...
-  281 ...
-  282 <IfModule dir_module>
-  283     DirectoryIndex index.php
-  284 </IfModule>
-  285 ...
-  286 ...
-  287 ...
-  ```
-
-  If you want custom htdocs or extension file that will be at loaded first, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
+If you want custom htdocs or extension file that will be at loaded first, change the configuration on file `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
   </details>
 
@@ -189,187 +106,187 @@ Here are some details about last version i use
   <details open>
   <summary>Apache & PHP</summary>
 
-  - PHP isn't loaded, just showing the code
+- PHP isn't loaded, just showing the code
 
-  |Like This|
-  |--|
-  |![Not Loaded](/img/troubleshooting/php_not_loaded.png)|
+| Like This                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------- |
+| ![phpnotload](https://user-images.githubusercontent.com/64394320/189684471-88add997-c944-4be1-b750-1de23232a25a.png) |
 
-  Open apache configuration on PATH `/data/data/com.termux/files/usr/etc/apache2/httpd.conf` 
-  
-  Give comment (#) this text
+Open apache configuration on PATH `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
-  |Comment Text|
-  |--|
-  |![Login Apache](/img/troubleshooting/php/70.png)|
+Give comment (#) this text
 
-  ```bash
-  67 ...
-  68 ...
-  69 ...
-  70 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
-  71 ...
-  72 ...
-  73 ...
-  ```
+| Comment Text                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Screenshot_2022-09-12_21-49-06](https://user-images.githubusercontent.com/64394320/189685096-fc06698f-d685-4f32-ada0-08da528737a8.png) |
 
-  Uncomment this text
+```bash
+64 ...
+65 ...
+66 ...
+67 LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
+68 ...
+69 ...
+70 ...
+```
 
-  |Uncomment Text|
-  |--|
-  |![Login Apache](/img/troubleshooting/php/69.png)|
+Uncomment this text
 
-  ```bash
-  66 ...
-  67 ...
-  68 ...
-  69 #LoadModule mpm_worker_module libexec/apache2/mod_mpm_worker.so
-  70 ...
-  71 ...
-  72 ...
-  ```
+| Uncomment Text                                                                                                  |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189685398-b301d3d9-39e5-4640-a6f5-41ac20622015.png) |
 
-  Add module on last configuration
+```bash
+63 ...
+64 ...
+65 ...
+66 #LoadModule mpm_prefork_module libexec/apache2/mod_mpm_prefork.so
+67 ...
+68 ...
+69 ...
+```
 
-  |Add Module|
-  |--|
-  |![Login Apache](/img/troubleshooting/php/540.png)|
+Add module on last configuration
 
-  ```bash
-  536 ...
-  537 ...
-  538 ...
-  539 LoadModule php_module libexec/apache2/libphp.so
-  540 AddHandler php-script .php
-  ```
+| Add Module                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189686772-dce1af9d-3c82-4a9b-a5d5-ec8223ea2d83.png) |
 
-  This module for <strong>PHP Version 8</strong>
+```bash
+536 ...
+537 Include etc/apache2/conf.d/*.conf
+538 ...
+539 # Add module for PHP 8
+540 LoadModule php_module libexec/apache2/libphp.so
+541 AddHandler php-script .php
+```
 
-  Now restart apache with `killall httpd`
+This module for <strong>PHP Version 8</strong>
 
-  |PHP success loaded|
-  |--|
-  |![Solved](/img/troubleshooting/taraaa.jpg)|
+Now restart apache with `killall httpd`
+
+| PHP success loaded                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------- |
+| ![phpload](https://user-images.githubusercontent.com/64394320/189687316-552a4aa9-4653-4d4f-8a81-7d211932afcc.png) |
 
   </details>
 
   <details open>
   <summary>MySQL</summary>
 
-  - Can't login root user because the password didn't know
+- Can't login root user because the password didn't know
 
-  to fix this, Enable MySQL service
+to fix this, Enable MySQL service
 
-  |Enable MySQL Service|
-  |--|
-  |![Enable MySQL Service](/img/shortcut/mysql/enable.jpg)|
+| Enable MySQL Service                                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------- |
+| ![mysql-start](https://user-images.githubusercontent.com/64394320/189687778-3fc46931-85e4-4bd1-a32d-46f3ddeabc8a.png) |
 
-  After enable MySQL Service, now login mysql with root user.
+After enable MySQL Service, now login mysql with root user.
 
-  ```bash
-  $ mysql -u $(whoami)
-  ```
+```bash
+$ mysql -u $(whoami)
+```
 
-  After login, type this on MySQL (To use database mysql)
+After login, type this on MySQL (To use database mysql)
 
-  ```bash
-  MariaDB [(none)]> use mysql;
-  ```
+```bash
+MariaDB [(none)]> use mysql;
+```
 
-  Database changed
+Database changed
 
-  ```bash
-  MariaDB [(none)]>
-  ```
+```bash
+MariaDB [(none)]>
+```
 
-  To 
+To
 
-  ```bash
-  MariaDB [(mysql)]>
-  ```
+```bash
+MariaDB [(mysql)]>
+```
 
-  Now setting your root password MySQL you want, with
+Now setting your root password MySQL you want, with
 
-  ```bash
-  MariaDB [(mysql)]> set password for 'root'@'localhost' = password('your_password_here');
-  ```
+```bash
+MariaDB [(mysql)]> set password for 'root'@'localhost' = password('your_password_here');
+```
 
-  After setting password for root login, type
+After setting password for root login, type
 
-  ```bash
-  MariaDB [(mysql)]> flush privileges;
-  ```
+```bash
+MariaDB [(mysql)]> flush privileges;
+```
 
-  Exit MySQL, type
+Exit MySQL, type
 
-  ```bash
-  MariaDB [(mysql)]> exit; # or quit;
-  ```
+```bash
+MariaDB [(mysql)]> exit; # or quit;
+```
 
-  Now your root password has been changed, to login type
+Now your root password has been changed, to login type
 
-  ```bash
-  $ mysql -u root -p
-  ```
+```bash
+$ mysql -u root -p
+```
 
-  The password column filled with the newest password
+The password column filled with the newest password
 
-  |Picture|
-  |--|
-  |![Picture](/img/troubleshooting/mysql_root_password.jpg)|
+| Picture                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------- |
+| ![setpassword](https://user-images.githubusercontent.com/64394320/189687944-ddb1909b-8586-47e2-b20a-f6ef239952c7.png) |
 
   </details>
 
   <details open>
   <summary>phpMyAdmin</summary>
 
-  - Access Denied 403 Forbidden
+- Access Denied 403 Forbidden
 
-  |403 Forbidden|lamp-check|
-  |--|--|
-  |![403 Forbidden](/img/troubleshooting/myadmin/access_denied.jpg)|![403 Forbidden](/img/troubleshooting/myadmin/webserver.jpg)|
+| 403 Forbidden                                                                                                                  | lamp-check                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| ![phpmyadmin-forbidden](https://user-images.githubusercontent.com/64394320/189688664-2e5f4097-c527-45d5-a998-49dbabad00b5.png) | ![phpmyadmin-check](https://user-images.githubusercontent.com/64394320/189688675-09880c5a-99e6-443a-abee-5774312a2299.png) |
 
-  If you get this error, change this text on apache configuration `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
+If you get this error, change this text on apache configuration `/data/data/com.termux/files/usr/etc/apache2/httpd.conf`
 
-  |Require all denied|
-  |--|
-  |![Require all denied](/img/troubleshooting/myadmin/denied.png)|
+| Require all denied                                                                                              |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189689231-1169246d-4349-4d2d-b612-619d9a6e836d.png) |
 
-  ```bash
-  229 ...
-  230 ...
-  231 ...
-  232 <Directory />
-  233       AllowOverride none
-  234       Require all denied
-  235 </Directory>
-  236 ...
-  237 ...
-  238 ...
-  ```
+```bash
+225 ...
+226 ...
+227 ...
+228 <Directory />
+229       AllowOverride none
+230       Require all denied
+231 </Directory>
+232 ...
+233 ...
+234 ...
+```
 
-  To
+To
 
-  |Require all granted|
-  |--|
-  |![Require all denied](/img/troubleshooting/myadmin/granted.png)|
+| Require all granted                                                                                             |
+| --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/64394320/189689357-ecb8e216-24bb-400b-b708-811d7455464d.png) |
 
-  ```bash
-  229 ...
-  230 ...
-  231 ...
-  232 <Directory />
-  233       AllowOverride none
-  234       Require all granted
-  235 </Directory>
-  236 ...
-  237 ...
-  238 ...
-  ```
+```bash
+225 ...
+226 ...
+227 ...
+228 <Directory />
+229       AllowOverride none
+230       Require all granted
+231 </Directory>
+232 ...
+233 ...
+234 ...
+```
 
+Change Require all `denied` to Require all `granted`
 
-  Change Require all `denied` to Require all `granted`
-
-  <strong>Don't forget to restart apache with</strong> `killall httpd`
+<strong>Don't forget to restart apache with</strong> `killall httpd`
 
   </details>
