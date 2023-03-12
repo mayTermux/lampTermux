@@ -14,7 +14,8 @@ shortcutexec() {
     sleep 2s
 
     cp bin/${BIN} $PREFIX/bin/${BIN}
-
+    chmod 755 $PREFIX/bin/${BIN}
+    
     if [ -f $PREFIX/bin/${BIN} ]; then
         stop_spinner $?
     else
